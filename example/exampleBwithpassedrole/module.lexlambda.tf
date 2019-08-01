@@ -1,4 +1,4 @@
-module "lexlambda" {
+module "lambda" {
   source = "../../"
 
   lambdapermmissions = [{

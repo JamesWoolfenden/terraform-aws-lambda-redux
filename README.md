@@ -1,10 +1,10 @@
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-lex-lambda
+# terraform-aws-lambda-redux
 
- [![Build Status](https://api.travis-ci.com/JamesWoolfenden/terraform-aws-lex-lambda.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-lex-lambda) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lex-lambda.svg)](https://github.com/JamesWoolfenden/terraform-aws-lex-lambda/releases/latest)
+ [![Build Status](https://api.travis-ci.com/JamesWoolfenden/terraform-aws-lambda-redux.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-lambda-redux) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lambda-redux.svg)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/releases/latest)
 
-The terraform module creates lambda with permissions, for my purposes a lex lambda combination bit options for IAM and CLoudwatch.
+The terraform module creates lambda with permissions, for my purposes a lex lambda combination bit options for IAM and Cloudwatch.
 To use a lambda with an intent a number of other objects are either required. In this module I have included a number of reasonable default values.
 This should make it easier to build the lambdas that go with your lex objects.
 The lamda permission is a array/list this means you can add as many permissions to lambda as you need to.
@@ -20,8 +20,8 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 This is a minimal example **ExampleA**, but with Cloudwatch alarms enabled.
 
 ```hcl
-module "lexlambda" {
-  source = "github.com/jameswoolfenden/terraform-aws-lex-lambda"
+module "lambda" {
+  source = "github.com/jameswoolfenden/terraform-aws-lambda-redux"
   version= "0.3.40"
 
   lambdapermmissions = [{
@@ -132,13 +132,13 @@ Check out these related projects.
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-lex-lambda/issues).
+File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-lex-lambda/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
@@ -180,8 +180,8 @@ under the License.
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
 
-[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-lex-lambda&url=https://github.com/JamesWoolfenden/terraform-aws-lex-lambda
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-lex-lambda&url=https://github.com/JamesWoolfenden/terraform-aws-lex-lambda
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-lex-lambda
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-lex-lambda
-[share_email]: mailto:?subject=terraform-aws-lex-lambda&body=https://github.com/JamesWoolfenden/terraform-aws-lex-lambda
+[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-lambda-redux&url=https://github.com/JamesWoolfenden/terraform-aws-lambda-redux
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-lambda-redux&url=https://github.com/JamesWoolfenden/terraform-aws-lambda-redux
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-lambda-redux
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-lambda-redux
+[share_email]: mailto:?subject=terraform-aws-lambda-redux&body=https://github.com/JamesWoolfenden/terraform-aws-lambda-redux
