@@ -2,12 +2,15 @@
 
 # terraform-aws-lambda-redux
 
- [![Build Status](https://api.travis-ci.com/JamesWoolfenden/terraform-aws-lambda-redux.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-lambda-redux) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lambda-redux.svg)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/releases/latest)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lambda-redux.svg)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 The terraform module creates lambda with permissions, for my purposes a lex lambda combination bit options for IAM and Cloudwatch.
 To use a lambda with an intent a number of other objects are either required. In this module I have included a number of reasonable default values.
 This should make it easier to build the lambdas that go with your lex objects.
-The lamda permission is a array/list this means you can add as many permissions to lambda as you need to.
+The lambda permission is a array/list this means you can add as many permissions to lambda as you need to.
 
 How to use this project:
 
@@ -42,49 +45,56 @@ module "lambda" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| account\_id | The Aws account the policy or object should target | string | n/a | yes |
-| action | Action for the Lambda permission | string | `"lambda:InvokeFunction"` | no |
-| alarms\_enabled | Cloudwatch alarms enabled | bool | `"false"` | no |
-| common\_tags | Implements the common tags scheme | map | n/a | yes |
-| description | Of the the Lambda | string | n/a | yes |
-| envvar | Optional set of environmental variables for the lambda | map | `{ "Terraform": "Bug" }` | no |
-| filename | name of zip file if any | string | `"null"` | no |
-| handler | The file the lambda should import | string | `"index.handler"` | no |
-| lambdapermmissions | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | list | `[]` | no |
-| layers | Optionally, add in up 5 lambda layers | list | `[]` | no |
-| memory\_size | Of the the lambda | string | `"128"` | no |
-| metric\_comparison\_operator | For Cloudwatch Alarms | string | `"GreaterThanThreshold"` | no |
-| metric\_datapoints\_to\_alarm | For Cloudwatch Alarms | number | `"1"` | no |
-| metric\_evaluation\_periods | For Cloudwatch Alarms | number | `"1"` | no |
-| metric\_metric\_name |  | string | `"Invocations"` | no |
-| metric\_period |  | number | `"300"` | no |
-| metric\_statistic |  | string | `"Average"` | no |
-| metric\_threshold |  | number | `"100"` | no |
-| name | Name of Lambda object | string | n/a | yes |
-| prefixdash | Support for renaming on multi-environments | string | `""` | no |
-| principal |  | string | `"lex.amazonaws.com"` | no |
-| region\_name | Aws region name, eu-west-1... | string | n/a | yes |
-| role\_arn | The name you want your IAM role to have | string | n/a | yes |
-| runtime | Language the code runs in | string | `"nodejs8.10"` | no |
-| s3\_bucket | path to the lambda bucket | string | `"null"` | no |
-| s3\_key | path to the lambda zip | string | `"null"` | no |
-| security\_group\_ids | The IDs of some security groups | list(string) | `[]` | no |
-| subnet\_ids | Subnet IDs... | list(string) | `[]` | no |
-| timeout | Of the the lambda | string | `"100"` | no |
-| vpc\_config | Optional Vpc attachment config | map | `{}` | no |
+|------|-------------|------|---------|:-----:|
+| account\_id | The Aws account the policy or object should target | `string` | n/a | yes |
+| action | Action for the Lambda permission | `string` | `"lambda:InvokeFunction"` | no |
+| alarms\_enabled | Cloudwatch alarms enabled | `bool` | `false` | no |
+| common\_tags | Implements the common tags scheme | `map` | n/a | yes |
+| description | Of the the Lambda | `string` | n/a | yes |
+| envvar | Optional set of environmental variables for the lambda | `map` | <pre>{<br>  "Terraform": "Bug"<br>}</pre> | no |
+| filename | name of zip file if any | `string` | n/a | yes |
+| handler | The file the lambda should import | `string` | `"index.handler"` | no |
+| kms\_master\_key\_id | KMS key to encrypt SNS | `string` | `"alias/aws/sns"` | no |
+| lambdapermmissions | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | `list` | `[]` | no |
+| layers | Optionally, add in up 5 lambda layers | `list` | `[]` | no |
+| memory\_size | Of the the lambda | `string` | `"128"` | no |
+| metric\_comparison\_operator | For Cloudwatch Alarms | `string` | `"GreaterThanThreshold"` | no |
+| metric\_datapoints\_to\_alarm | For Cloudwatch Alarms | `number` | `1` | no |
+| metric\_evaluation\_periods | For Cloudwatch Alarms | `number` | `1` | no |
+| metric\_metric\_name | n/a | `string` | `"Invocations"` | no |
+| metric\_period | n/a | `number` | `300` | no |
+| metric\_statistic | n/a | `string` | `"Average"` | no |
+| metric\_threshold | n/a | `number` | `100` | no |
+| name | Name of Lambda object | `string` | n/a | yes |
+| prefixdash | Support for renaming on multi-environments | `string` | `""` | no |
+| principal | n/a | `string` | `"lex.amazonaws.com"` | no |
+| region\_name | Aws region name, eu-west-1... | `string` | n/a | yes |
+| role\_arn | The name you want your IAM role to have | `string` | n/a | yes |
+| runtime | Language the code runs in | `string` | `"nodejs8.10"` | no |
+| s3\_bucket | path to the lambda bucket | `string` | n/a | yes |
+| s3\_key | path to the lambda zip | `string` | n/a | yes |
+| security\_group\_ids | The IDs of some security groups | `list(string)` | `[]` | no |
+| subnet\_ids | Subnet IDs... | `list(string)` | `[]` | no |
+| timeout | Of the the lambda | `string` | `"100"` | no |
+| vpc\_config | Optional Vpc attachment config | `map` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| lambda\_arn |  |
-| memory\_size |  |
-| source\_code\_size |  |
-| timeout |  |
+| lambda\_arn | n/a |
+| memory\_size | n/a |
+| source\_code\_size | n/a |
+| timeout | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Further work
@@ -142,7 +152,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 
 ## License
 
@@ -169,11 +179,10 @@ under the License.
 
 ### Contributors
 
-  [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
 
-  [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
-  [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-
+[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
+[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
