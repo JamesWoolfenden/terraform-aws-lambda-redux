@@ -85,6 +85,7 @@ module "lambda" {
 | security\_group\_ids | The IDs of some security groups | `list(string)` | `[]` | no |
 | subnet\_ids | Subnet IDs... | `list(string)` | `[]` | no |
 | timeout | Of the the lambda | `string` | `"100"` | no |
+| tracing\_mode | Enable X-ray and in what mode Active or PassThrough | `string` | `"Active"` | no |
 | vpc\_config | Optional Vpc attachment config | `map` | `{}` | no |
 
 ## Outputs

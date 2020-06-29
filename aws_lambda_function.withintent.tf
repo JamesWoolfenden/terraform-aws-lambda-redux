@@ -24,8 +24,12 @@ resource "aws_lambda_function" "withintent" {
 
   lifecycle {
     ignore_changes = [
-      "last_modified",
-      "tags",
+      last_modified,
+      tags,
     ]
+  }
+
+  tracing_config {
+    mode = var.tracing_mode
   }
 }

@@ -167,3 +167,9 @@ variable "metric_threshold" {
 
   default = 100
 }
+
+variable "tracing_mode" {
+  type        = string
+  description = "Enable X-ray and in what mode Active or PassThrough"
+  default     = "Active"
+}
