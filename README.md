@@ -45,6 +45,10 @@ module "lambda" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -54,14 +58,14 @@ module "lambda" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | account\_id | The Aws account the policy or object should target | `string` | n/a | yes |
 | action | Action for the Lambda permission | `string` | `"lambda:InvokeFunction"` | no |
 | alarms\_enabled | Cloudwatch alarms enabled | `bool` | `false` | no |
 | common\_tags | Implements the common tags scheme | `map` | n/a | yes |
 | description | Of the the Lambda | `string` | n/a | yes |
 | envvar | Optional set of environmental variables for the lambda | `map` | <pre>{<br>  "Terraform": "Bug"<br>}</pre> | no |
-| filename | name of zip file if any | `string` | n/a | yes |
+| filename | name of zip file if any | `string` | `null` | no |
 | handler | The file the lambda should import | `string` | `"index.handler"` | no |
 | kms\_master\_key\_id | KMS key to encrypt SNS | `string` | `"alias/aws/sns"` | no |
 | lambdapermmissions | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | `list` | `[]` | no |
@@ -80,8 +84,8 @@ module "lambda" {
 | region\_name | Aws region name, eu-west-1... | `string` | n/a | yes |
 | role\_arn | The name you want your IAM role to have | `string` | n/a | yes |
 | runtime | Language the code runs in | `string` | `"nodejs8.10"` | no |
-| s3\_bucket | path to the lambda bucket | `string` | n/a | yes |
-| s3\_key | path to the lambda zip | `string` | n/a | yes |
+| s3\_bucket | path to the lambda bucket | `string` | `null` | no |
+| s3\_key | path to the lambda zip | `string` | `null` | no |
 | security\_group\_ids | The IDs of some security groups | `list(string)` | `[]` | no |
 | subnet\_ids | Subnet IDs... | `list(string)` | `[]` | no |
 | timeout | Of the the lambda | `string` | `"100"` | no |
