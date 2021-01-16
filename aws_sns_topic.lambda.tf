@@ -22,9 +22,3 @@ POLICY
   kms_master_key_id = var.kms_master_key_id
   tags              = var.common_tags
 }
-
-variable "kms_master_key_id" {
-  type        = string
-  description = "KMS key to encrypt SNS"
-  default     = "alias/aws/sns"
-}

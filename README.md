@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lambda-redux.svg)](https://github.com/JamesWoolfenden/terraform-aws-lambda-redux/releases/latest)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
+[![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 The terraform module creates lambda with permissions, for my purposes a lex lambda combination bit options for IAM and Cloudwatch.
 To use a lambda with an intent a number of other objects are either required. In this module I have included a number of reasonable default values.
@@ -60,14 +60,15 @@ No requirements.
 | account\_id | The Aws account the policy or object should target | `string` | n/a | yes |
 | action | Action for the Lambda permission | `string` | `"lambda:InvokeFunction"` | no |
 | alarms\_enabled | Cloudwatch alarms enabled | `bool` | `false` | no |
-| common\_tags | Implements the common tags scheme | `map` | n/a | yes |
+| cloudwatch\_kms\_key | KMS key ARN | `string` | n/a | yes |
+| common\_tags | Implements the common tags scheme | `map(any)` | n/a | yes |
 | description | Of the the Lambda | `string` | n/a | yes |
-| envvar | Optional set of environmental variables for the lambda | `map` | <pre>{<br>  "Terraform": "Bug"<br>}</pre> | no |
+| envvar | Optional set of environmental variables for the lambda | `map(any)` | <pre>{<br>  "Terraform": "Bug"<br>}</pre> | no |
 | filename | name of zip file if any | `string` | `null` | no |
 | handler | The file the lambda should import | `string` | `"index.handler"` | no |
 | kms\_master\_key\_id | KMS key to encrypt SNS | `string` | `"alias/aws/sns"` | no |
-| lambdapermmissions | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | `list` | `[]` | no |
-| layers | Optionally, add in up 5 lambda layers | `list` | `[]` | no |
+| lambdapermmissions | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | `list(any)` | `[]` | no |
+| layers | Optionally, add in up 5 lambda layers | `list(any)` | `[]` | no |
 | memory\_size | Of the the lambda | `string` | `"128"` | no |
 | metric\_comparison\_operator | For Cloudwatch Alarms | `string` | `"GreaterThanThreshold"` | no |
 | metric\_datapoints\_to\_alarm | For Cloudwatch Alarms | `number` | `1` | no |
@@ -88,7 +89,7 @@ No requirements.
 | subnet\_ids | Subnet IDs... | `list(string)` | `[]` | no |
 | timeout | Of the the lambda | `string` | `"100"` | no |
 | tracing\_mode | Enable X-ray and in what mode Active or PassThrough | `string` | `"Active"` | no |
-| vpc\_config | Optional Vpc attachment config | `map` | `{}` | no |
+| vpc\_config | Optional Vpc attachment config | `map(any)` | `{}` | no |
 
 ## Outputs
 
@@ -156,7 +157,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2020 James Woolfenden
+Copyright © 2019-2021 James Woolfenden
 
 ## License
 

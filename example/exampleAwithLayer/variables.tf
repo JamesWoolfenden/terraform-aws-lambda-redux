@@ -1,5 +1,5 @@
 variable "common_tags" {
-  type = map
+  type = map(any)
 }
 
 variable "description" {
@@ -11,7 +11,7 @@ variable "name" {
 }
 
 variable "layers" {
-  type = "list"
+  type = list(string)
 }
 
 variable "versionpath" {

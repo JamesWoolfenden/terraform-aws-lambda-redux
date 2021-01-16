@@ -1,6 +1,6 @@
 
 variable "common_tags" {
-  type        = map
+  type        = map(any)
   description = "Implements the common tags scheme"
 }
 
@@ -21,4 +21,8 @@ variable "role" {
   type        = string
   default     = ""
   description = "The name of role, if any"
+}
+
+variable "cloudwatch_kms_key" {
+  type = string
 }
