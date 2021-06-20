@@ -1,3 +1,0 @@
-resource "aws_iam_role" "lambda_basic_execution" {
-   name="lambda_basic_execution"
-}
