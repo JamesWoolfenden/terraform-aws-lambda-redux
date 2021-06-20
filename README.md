@@ -102,10 +102,11 @@ No modules.
 | <a name="input_metric_statistic"></a> [metric\_statistic](#input\_metric\_statistic) | n/a | `string` | `"Average"` | no |
 | <a name="input_metric_threshold"></a> [metric\_threshold](#input\_metric\_threshold) | n/a | `number` | `100` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of Lambda object | `string` | n/a | yes |
+| <a name="input_passrole"></a> [passrole](#input\_passrole) | n/a | `bool` | `false` | no |
 | <a name="input_prefixdash"></a> [prefixdash](#input\_prefixdash) | Support for renaming on multi-environments | `string` | `""` | no |
 | <a name="input_principal"></a> [principal](#input\_principal) | n/a | `string` | `"lex.amazonaws.com"` | no |
 | <a name="input_region_name"></a> [region\_name](#input\_region\_name) | Aws region name, eu-west-1... | `string` | n/a | yes |
-| <a name="input_role_arn"></a> [role\_arn](#input\_role\_arn) | The name you want your IAM role to have | `string` | n/a | yes |
+| <a name="input_role_arn"></a> [role\_arn](#input\_role\_arn) | The name you want your IAM role to have | `string` | `""` | no |
 | <a name="input_runtime"></a> [runtime](#input\_runtime) | Language the code runs in | `string` | `"nodejs8.10"` | no |
 | <a name="input_s3_bucket"></a> [s3\_bucket](#input\_s3\_bucket) | path to the lambda bucket | `string` | `null` | no |
 | <a name="input_s3_key"></a> [s3\_key](#input\_s3\_key) | path to the lambda zip | `string` | `null` | no |

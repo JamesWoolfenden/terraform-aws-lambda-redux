@@ -17,6 +17,7 @@ variable "region_name" {
 variable "role_arn" {
   type        = string
   description = "The name you want your IAM role to have"
+  default     = ""
 }
 
 variable "account_id" {

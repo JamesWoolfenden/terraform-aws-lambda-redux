@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda" {
-  count = var.role_arn == "" ? 1 : 0
+  count = var.passrole == false ? 1 : 0
 
   assume_role_policy = <<HERE
 {
@@ -17,4 +17,10 @@ resource "aws_iam_role" "lambda" {
 HERE
 
   tags = var.common_tags
+}
+
+
+variable "passrole" {
+  type    = bool
+  default = false
 }
