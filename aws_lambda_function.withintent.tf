@@ -13,6 +13,7 @@ resource "aws_lambda_function" "withintent" {
   s3_key        = var.s3_key
   tags          = var.common_tags
   timeout       = var.timeout
+  kms_key_arn   = var.kms_key_id
 
   environment {
     variables = var.envvar

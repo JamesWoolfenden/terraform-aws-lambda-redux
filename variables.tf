@@ -185,3 +185,9 @@ variable "kms_master_key_id" {
   description = "KMS key to encrypt SNS"
   default     = "alias/aws/sns"
 }
+
+variable "kms_key_id" {
+  type        = string
+  description = "CMK for Lambda"
+  default     = ""
+}
