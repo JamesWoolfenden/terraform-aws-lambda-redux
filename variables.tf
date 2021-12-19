@@ -175,16 +175,6 @@ variable "tracing_mode" {
   default     = "Active"
 }
 
-variable "cloudwatch_kms_key" {
-  type        = string
-  description = "KMS key ARN"
-}
-
-variable "kms_master_key_id" {
-  type        = string
-  description = "KMS key to encrypt SNS"
-  default     = "alias/aws/sns"
-}
 
 variable "kms_key_id" {
   type        = string

@@ -23,6 +23,6 @@ variable "role" {
   description = "The name of role, if any"
 }
 
-variable "cloudwatch_kms_key" {
+variable "kms_key_id" {
   type = string
 }

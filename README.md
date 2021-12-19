@@ -84,14 +84,12 @@ No modules.
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The Aws account the policy or object should target | `string` | n/a | yes |
 | <a name="input_action"></a> [action](#input\_action) | Action for the Lambda permission | `string` | `"lambda:InvokeFunction"` | no |
 | <a name="input_alarms_enabled"></a> [alarms\_enabled](#input\_alarms\_enabled) | Cloudwatch alarms enabled | `bool` | `false` | no |
-| <a name="input_cloudwatch_kms_key"></a> [cloudwatch\_kms\_key](#input\_cloudwatch\_kms\_key) | KMS key ARN | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Implements the common tags scheme | `map(any)` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | Of the the Lambda | `string` | n/a | yes |
 | <a name="input_envvar"></a> [envvar](#input\_envvar) | Optional set of environmental variables for the lambda | `map(any)` | <pre>{<br>  "Terraform": "Bug"<br>}</pre> | no |
 | <a name="input_filename"></a> [filename](#input\_filename) | name of zip file if any | `string` | `null` | no |
 | <a name="input_handler"></a> [handler](#input\_handler) | The file the lambda should import | `string` | `"index.handler"` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | CMK for Lambda | `string` | n/a | yes |
-| <a name="input_kms_master_key_id"></a> [kms\_master\_key\_id](#input\_kms\_master\_key\_id) | KMS key to encrypt SNS | `string` | `"alias/aws/sns"` | no |
 | <a name="input_lambdapermmissions"></a> [lambdapermmissions](#input\_lambdapermmissions) | This takes a list object with values to set permissions of a lambda. Can take multiple permission objects | `list(any)` | `[]` | no |
 | <a name="input_layers"></a> [layers](#input\_layers) | Optionally, add in up 5 lambda layers | `list(any)` | `[]` | no |
 | <a name="input_memory_size"></a> [memory\_size](#input\_memory\_size) | Of the the lambda | `string` | `"128"` | no |
