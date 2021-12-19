@@ -189,5 +189,4 @@ variable "kms_master_key_id" {
 variable "kms_key_id" {
   type        = string
   description = "CMK for Lambda"
-  default     = ""
 }
