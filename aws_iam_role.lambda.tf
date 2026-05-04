@@ -18,8 +18,6 @@ HERE
 
   tags = var.common_tags
 }
-
-
 variable "passrole" {
   type    = bool
   default = false

@@ -15,34 +15,28 @@ resource "aws_cloudwatch_metric_alarm" "ConcurrentExecutions" {
   tags                      = var.common_tags
   threshold                 = var.metric_threshold
 }
-
 variable "metric_threshold" {
   description = "Threshold for a metric Alarm"
   type        = number
   default     = 10000
 }
-
 variable "metric_comparison_operator" {
   default = "GreaterThanThreshold"
   type    = string
 
 }
-
 variable "metric_datapoints_to_alarm" {
   type    = number
   default = 1
 }
-
 variable "metric_statistic" {
   type    = string
   default = "Average"
 }
-
 variable "metric_evaluation_periods" {
   type    = number
   default = 1
 }
-
 variable "metric_period" {
   type    = number
   default = 300
